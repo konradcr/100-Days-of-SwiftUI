@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		715A17A326A48EC1000947F6 /* RollDiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17A226A48EC1000947F6 /* RollDiceApp.swift */; };
+		715A17A526A48EC1000947F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17A426A48EC1000947F6 /* ContentView.swift */; };
+		715A17A726A48EC2000947F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 715A17A626A48EC2000947F6 /* Assets.xcassets */; };
+		715A17AA26A48EC2000947F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 715A17A926A48EC2000947F6 /* Preview Assets.xcassets */; };
+		715A17AC26A48EC2000947F6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17AB26A48EC2000947F6 /* Persistence.swift */; };
+		715A17AF26A48EC2000947F6 /* RollDice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 715A17AD26A48EC2000947F6 /* RollDice.xcdatamodeld */; };
+		715A17B926A4924C000947F6 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17B826A4924C000947F6 /* ScoresView.swift */; };
+		715A17BB26A495A2000947F6 /* RollDiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17BA26A495A2000947F6 /* RollDiceView.swift */; };
+		715A17C026A49B6B000947F6 /* Result+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17BC26A49B6B000947F6 /* Result+CoreDataClass.swift */; };
+		715A17C126A49B6B000947F6 /* Result+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17BD26A49B6B000947F6 /* Result+CoreDataProperties.swift */; };
+		715A17C226A49B6B000947F6 /* Die+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17BE26A49B6B000947F6 /* Die+CoreDataClass.swift */; };
+		715A17C326A49B6B000947F6 /* Die+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17BF26A49B6B000947F6 /* Die+CoreDataProperties.swift */; };
+		715A17C526A5771D000947F6 /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A17C426A5771D000947F6 /* DieView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		715A179F26A48EC1000947F6 /* RollDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RollDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		715A17A226A48EC1000947F6 /* RollDiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollDiceApp.swift; sourceTree = "<group>"; };
+		715A17A426A48EC1000947F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		715A17A626A48EC2000947F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		715A17A926A48EC2000947F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		715A17AB26A48EC2000947F6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		715A17AE26A48EC2000947F6 /* RollDice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RollDice.xcdatamodel; sourceTree = "<group>"; };
+		715A17B026A48EC2000947F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		715A17B826A4924C000947F6 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
+		715A17BA26A495A2000947F6 /* RollDiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollDiceView.swift; sourceTree = "<group>"; };
+		715A17BC26A49B6B000947F6 /* Result+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+CoreDataClass.swift"; sourceTree = "<group>"; };
+		715A17BD26A49B6B000947F6 /* Result+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		715A17BE26A49B6B000947F6 /* Die+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Die+CoreDataClass.swift"; sourceTree = "<group>"; };
+		715A17BF26A49B6B000947F6 /* Die+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Die+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		715A17C426A5771D000947F6 /* DieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		715A179C26A48EC1000947F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		715A179626A48EC1000947F6 = {
+			isa = PBXGroup;
+			children = (
+				715A17A126A48EC1000947F6 /* RollDice */,
+				715A17A026A48EC1000947F6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		715A17A026A48EC1000947F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				715A179F26A48EC1000947F6 /* RollDice.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		715A17A126A48EC1000947F6 /* RollDice */ = {
+			isa = PBXGroup;
+			children = (
+				715A17BE26A49B6B000947F6 /* Die+CoreDataClass.swift */,
+				715A17BF26A49B6B000947F6 /* Die+CoreDataProperties.swift */,
+				715A17BC26A49B6B000947F6 /* Result+CoreDataClass.swift */,
+				715A17BD26A49B6B000947F6 /* Result+CoreDataProperties.swift */,
+				715A17A226A48EC1000947F6 /* RollDiceApp.swift */,
+				715A17A426A48EC1000947F6 /* ContentView.swift */,
+				715A17BA26A495A2000947F6 /* RollDiceView.swift */,
+				715A17C426A5771D000947F6 /* DieView.swift */,
+				715A17B826A4924C000947F6 /* ScoresView.swift */,
+				715A17A626A48EC2000947F6 /* Assets.xcassets */,
+				715A17AB26A48EC2000947F6 /* Persistence.swift */,
+				715A17B026A48EC2000947F6 /* Info.plist */,
+				715A17AD26A48EC2000947F6 /* RollDice.xcdatamodeld */,
+				715A17A826A48EC2000947F6 /* Preview Content */,
+			);
+			path = RollDice;
+			sourceTree = "<group>";
+		};
+		715A17A826A48EC2000947F6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				715A17A926A48EC2000947F6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		715A179E26A48EC1000947F6 /* RollDice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 715A17B326A48EC2000947F6 /* Build configuration list for PBXNativeTarget "RollDice" */;
+			buildPhases = (
+				715A179B26A48EC1000947F6 /* Sources */,
+				715A179C26A48EC1000947F6 /* Frameworks */,
+				715A179D26A48EC1000947F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RollDice;
+			productName = RollDice;
+			productReference = 715A179F26A48EC1000947F6 /* RollDice.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		715A179726A48EC1000947F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					715A179E26A48EC1000947F6 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 715A179A26A48EC1000947F6 /* Build configuration list for PBXProject "RollDice" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 715A179626A48EC1000947F6;
+			productRefGroup = 715A17A026A48EC1000947F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				715A179E26A48EC1000947F6 /* RollDice */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		715A179D26A48EC1000947F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				715A17AA26A48EC2000947F6 /* Preview Assets.xcassets in Resources */,
+				715A17A726A48EC2000947F6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		715A179B26A48EC1000947F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				715A17AC26A48EC2000947F6 /* Persistence.swift in Sources */,
+				715A17B926A4924C000947F6 /* ScoresView.swift in Sources */,
+				715A17C226A49B6B000947F6 /* Die+CoreDataClass.swift in Sources */,
+				715A17C026A49B6B000947F6 /* Result+CoreDataClass.swift in Sources */,
+				715A17C326A49B6B000947F6 /* Die+CoreDataProperties.swift in Sources */,
+				715A17C526A5771D000947F6 /* DieView.swift in Sources */,
+				715A17A526A48EC1000947F6 /* ContentView.swift in Sources */,
+				715A17C126A49B6B000947F6 /* Result+CoreDataProperties.swift in Sources */,
+				715A17A326A48EC1000947F6 /* RollDiceApp.swift in Sources */,
+				715A17AF26A48EC2000947F6 /* RollDice.xcdatamodeld in Sources */,
+				715A17BB26A495A2000947F6 /* RollDiceView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		715A17B126A48EC2000947F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		715A17B226A48EC2000947F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		715A17B426A48EC2000947F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"RollDice/Preview Content\"";
+				DEVELOPMENT_TEAM = M6Z8JUW5F9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = RollDice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.konrad.cureau.RollDice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		715A17B526A48EC2000947F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"RollDice/Preview Content\"";
+				DEVELOPMENT_TEAM = M6Z8JUW5F9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = RollDice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.konrad.cureau.RollDice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		715A179A26A48EC1000947F6 /* Build configuration list for PBXProject "RollDice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				715A17B126A48EC2000947F6 /* Debug */,
+				715A17B226A48EC2000947F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		715A17B326A48EC2000947F6 /* Build configuration list for PBXNativeTarget "RollDice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				715A17B426A48EC2000947F6 /* Debug */,
+				715A17B526A48EC2000947F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		715A17AD26A48EC2000947F6 /* RollDice.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				715A17AE26A48EC2000947F6 /* RollDice.xcdatamodel */,
+			);
+			currentVersion = 715A17AE26A48EC2000947F6 /* RollDice.xcdatamodel */;
+			path = RollDice.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 715A179726A48EC1000947F6 /* Project object */;
+}

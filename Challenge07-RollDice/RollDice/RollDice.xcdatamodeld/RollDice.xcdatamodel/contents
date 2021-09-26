@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="21A5268h" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Die" representedClassName="Die" syncable="YES">
+        <attribute name="dieResult" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nbrOfSide" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="mainResult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Result" inverseName="dice" inverseEntity="Result"/>
+    </entity>
+    <entity name="Result" representedClassName="Result" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nbrOfDice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalResult" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="dice" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Die" inverseName="mainResult" inverseEntity="Die"/>
+    </entity>
+    <elements>
+        <element name="Die" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Result" positionX="-63" positionY="9" width="128" height="89"/>
+    </elements>
+</model>
