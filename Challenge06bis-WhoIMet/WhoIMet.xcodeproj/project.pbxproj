@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		710002EF269872D00025AE60 /* DetailContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710002EE269872D00025AE60 /* DetailContactView.swift */; };
+		711B4972269720F6001668E5 /* WhoIMetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4971269720F6001668E5 /* WhoIMetApp.swift */; };
+		711B4974269720F6001668E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4973269720F6001668E5 /* ContentView.swift */; };
+		711B4976269720F8001668E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B4975269720F8001668E5 /* Assets.xcassets */; };
+		711B4979269720F8001668E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B4978269720F8001668E5 /* Preview Assets.xcassets */; };
+		711B497B269720F8001668E5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B497A269720F8001668E5 /* Persistence.swift */; };
+		711B497E269720F8001668E5 /* WhoIMet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 711B497C269720F8001668E5 /* WhoIMet.xcdatamodeld */; };
+		7188D12B2697247C00CA1242 /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7188D1292697247C00CA1242 /* Contact+CoreDataClass.swift */; };
+		7188D12C2697247C00CA1242 /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7188D12A2697247C00CA1242 /* Contact+CoreDataProperties.swift */; };
+		7188D12E26972BA700CA1242 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7188D12D26972BA700CA1242 /* ImagePicker.swift */; };
+		7188D13026972C4900CA1242 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7188D12F26972C4900CA1242 /* AddContactView.swift */; };
+		71BE88B02698C6DE009F1B78 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE88AF2698C6DE009F1B78 /* LocationFetcher.swift */; };
+		71BE88B42698C8E5009F1B78 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE88B32698C8E5009F1B78 /* MapView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		710002EE269872D00025AE60 /* DetailContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContactView.swift; sourceTree = "<group>"; };
+		711B496E269720F6001668E5 /* WhoIMet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoIMet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		711B4971269720F6001668E5 /* WhoIMetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIMetApp.swift; sourceTree = "<group>"; };
+		711B4973269720F6001668E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		711B4975269720F8001668E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		711B4978269720F8001668E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		711B497A269720F8001668E5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		711B497D269720F8001668E5 /* WhoIMet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhoIMet.xcdatamodel; sourceTree = "<group>"; };
+		711B497F269720F8001668E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7188D1292697247C00CA1242 /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		7188D12A2697247C00CA1242 /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7188D12D26972BA700CA1242 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		7188D12F26972C4900CA1242 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		71BE88AF2698C6DE009F1B78 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		71BE88B32698C8E5009F1B78 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		711B496B269720F6001668E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		711B4965269720F6001668E5 = {
+			isa = PBXGroup;
+			children = (
+				711B4970269720F6001668E5 /* WhoIMet */,
+				711B496F269720F6001668E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		711B496F269720F6001668E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				711B496E269720F6001668E5 /* WhoIMet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		711B4970269720F6001668E5 /* WhoIMet */ = {
+			isa = PBXGroup;
+			children = (
+				7188D1292697247C00CA1242 /* Contact+CoreDataClass.swift */,
+				7188D12A2697247C00CA1242 /* Contact+CoreDataProperties.swift */,
+				711B4971269720F6001668E5 /* WhoIMetApp.swift */,
+				711B4973269720F6001668E5 /* ContentView.swift */,
+				71BE88AF2698C6DE009F1B78 /* LocationFetcher.swift */,
+				7188D12F26972C4900CA1242 /* AddContactView.swift */,
+				710002EE269872D00025AE60 /* DetailContactView.swift */,
+				7188D12D26972BA700CA1242 /* ImagePicker.swift */,
+				71BE88B32698C8E5009F1B78 /* MapView.swift */,
+				711B4975269720F8001668E5 /* Assets.xcassets */,
+				711B497A269720F8001668E5 /* Persistence.swift */,
+				711B497F269720F8001668E5 /* Info.plist */,
+				711B497C269720F8001668E5 /* WhoIMet.xcdatamodeld */,
+				711B4977269720F8001668E5 /* Preview Content */,
+			);
+			path = WhoIMet;
+			sourceTree = "<group>";
+		};
+		711B4977269720F8001668E5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				711B4978269720F8001668E5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		711B496D269720F6001668E5 /* WhoIMet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 711B4982269720F8001668E5 /* Build configuration list for PBXNativeTarget "WhoIMet" */;
+			buildPhases = (
+				711B496A269720F6001668E5 /* Sources */,
+				711B496B269720F6001668E5 /* Frameworks */,
+				711B496C269720F6001668E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhoIMet;
+			productName = WhoIMet;
+			productReference = 711B496E269720F6001668E5 /* WhoIMet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		711B4966269720F6001668E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					711B496D269720F6001668E5 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 711B4969269720F6001668E5 /* Build configuration list for PBXProject "WhoIMet" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 711B4965269720F6001668E5;
+			productRefGroup = 711B496F269720F6001668E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				711B496D269720F6001668E5 /* WhoIMet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		711B496C269720F6001668E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				711B4979269720F8001668E5 /* Preview Assets.xcassets in Resources */,
+				711B4976269720F8001668E5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		711B496A269720F6001668E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7188D12C2697247C00CA1242 /* Contact+CoreDataProperties.swift in Sources */,
+				711B497B269720F8001668E5 /* Persistence.swift in Sources */,
+				71BE88B02698C6DE009F1B78 /* LocationFetcher.swift in Sources */,
+				71BE88B42698C8E5009F1B78 /* MapView.swift in Sources */,
+				711B497E269720F8001668E5 /* WhoIMet.xcdatamodeld in Sources */,
+				710002EF269872D00025AE60 /* DetailContactView.swift in Sources */,
+				7188D12E26972BA700CA1242 /* ImagePicker.swift in Sources */,
+				711B4974269720F6001668E5 /* ContentView.swift in Sources */,
+				711B4972269720F6001668E5 /* WhoIMetApp.swift in Sources */,
+				7188D12B2697247C00CA1242 /* Contact+CoreDataClass.swift in Sources */,
+				7188D13026972C4900CA1242 /* AddContactView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		711B4980269720F8001668E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		711B4981269720F8001668E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		711B4983269720F8001668E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"WhoIMet/Preview Content\"";
+				DEVELOPMENT_TEAM = M6Z8JUW5F9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = WhoIMet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.konrad.cureau.WhoIMet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		711B4984269720F8001668E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"WhoIMet/Preview Content\"";
+				DEVELOPMENT_TEAM = M6Z8JUW5F9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = WhoIMet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.konrad.cureau.WhoIMet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		711B4969269720F6001668E5 /* Build configuration list for PBXProject "WhoIMet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				711B4980269720F8001668E5 /* Debug */,
+				711B4981269720F8001668E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		711B4982269720F8001668E5 /* Build configuration list for PBXNativeTarget "WhoIMet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				711B4983269720F8001668E5 /* Debug */,
+				711B4984269720F8001668E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		711B497C269720F8001668E5 /* WhoIMet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				711B497D269720F8001668E5 /* WhoIMet.xcdatamodel */,
+			);
+			currentVersion = 711B497D269720F8001668E5 /* WhoIMet.xcdatamodel */;
+			path = WhoIMet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 711B4966269720F6001668E5 /* Project object */;
+}
