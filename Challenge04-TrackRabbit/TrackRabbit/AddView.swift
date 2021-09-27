@@ -24,11 +24,13 @@ struct AddView: View {
                 }
             }
             .navigationBarTitle("Add new activity")
-            .navigationBarItems(trailing: Button("Save") {
+            .navigationBarItems(
+                trailing: Button("Save") {
                 let item = ActivityItem(title: self.title, description: self.description, targetCount: self.targetCount)
                 self.activities.items.append(item)
                 self.presentationMode.wrappedValue.dismiss()
-            })
+                }
+            )
         }
     }
 }

@@ -28,7 +28,7 @@ extension AnyTransition {
 
 struct ContentView: View {
     @State private var isShowingRed = false
-    
+
     var body: some View {
         VStack {
             Button("Tap Me") {

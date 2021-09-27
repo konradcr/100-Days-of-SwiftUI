@@ -10,21 +10,20 @@ import SwiftUI
 struct ContentView: View {
     @State private var appChoice = Int.random(in: 0...2)
     @State private var shouldWin = Bool.random()
-    
+
     @State private var userScore = 0
-    
+
     @State private var moves = ["Rock", "Paper", "Scissors"]
-    
-    
+
     func match(_ number: Int) {
-        var didWin : Bool {
+        var didWin: Bool {
             if appChoice == 2 && number == 0 {
                 return true
             } else if appChoice == 0 && number == 2 {
                 return false
             } else if number == (appChoice + 1) {
                 return true
-            } else if number == (appChoice - 1){
+            } else if number == (appChoice - 1) {
                 return false
             } else {
                 return false
@@ -36,14 +35,12 @@ struct ContentView: View {
             userScore -= 1
         }
     }
-    
 
-    
     func reset() {
         appChoice = Int.random(in: 0...2)
         shouldWin = Bool.random()
     }
-    
+
     var body: some View {
         VStack {
             Text("Your score : \(userScore) ")
@@ -63,10 +60,12 @@ struct ContentView: View {
                     }
                 } */
                 ForEach(0 ..< 3) { number in
-                    Button(action: {
+                    Button(
+                        action: {
                         self.match(number)
                         self.reset()
-                    }) {
+                        }
+                    ) {
                         Text("\(moves[number])")
                     }
                 }

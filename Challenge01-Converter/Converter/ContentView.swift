@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     @State private var inputValue = ""
     @State private var inUnit = 0
     @State private var outUnit = 2
-    
-    let units = ["Celsius","Fahrenheit","Kelvin"]
-    
+
+    let units = ["Celsius", "Fahrenheit", "Kelvin"]
+
     var convertedValue: Double {
         let valueToConvert = Double(inputValue) ?? 0
         let inSelection = units[inUnit]
         let outSelection = units[outUnit]
-        
-        var inToCelsius : Double {
+
+        var inToCelsius: Double {
             switch inSelection {
             case "Celsius":
                 return valueToConvert
@@ -32,7 +32,8 @@ struct ContentView: View {
                 return 0
             }
         }
-        var celsiusToOut : Double {
+
+        var celsiusToOut: Double {
             switch outSelection {
             case "Celsius":
                 return inToCelsius
@@ -44,9 +45,10 @@ struct ContentView: View {
                 return 0
             }
         }
+
         return celsiusToOut
     }
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -54,26 +56,25 @@ struct ContentView: View {
                     TextField("Value", text: $inputValue)
                             .keyboardType(.decimalPad)
                 }
-                Section (header: Text("Units")) {
+
+                Section(header: Text("Units")) {
                     Picker("Input", selection: $inUnit) {
-                        
-                        ForEach (0 ..< units.count) {
+                        ForEach(0 ..< units.count) {
                             Text("\(self.units[$0])")
                         }
                     }
                     Picker("Output", selection: $outUnit) {
-                        
-                        ForEach (0 ..< units.count) {
+                        ForEach(0 ..< units.count) {
                             Text("\(self.units[$0])")
                         }
                     }
                 }
+
                 if inputValue.isEmpty == false {
-                    Section (header: Text("Converted Value")) {
+                    Section(header: Text("Converted Value")) {
                         Text("\(convertedValue, specifier: "%.2f")")
                     }
                 }
-                
             }
             .navigationBarTitle("Converter")
         }

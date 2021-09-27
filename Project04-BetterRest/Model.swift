@@ -11,18 +11,18 @@ import SwiftUI
 class Model: ObservableObject {
 
     @Published var allUsers = [User]()
-    
+
     init() {
         allUsers = Bundle.main.decode("friendface.json")
     }
-    
+
     func loadData() {
         guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
             return
         }
         let request = URLRequest(url: url)
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: request) { data, _, error in
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
@@ -41,4 +41,3 @@ class Model: ObservableObject {
         }.resume()
     }
 }
-

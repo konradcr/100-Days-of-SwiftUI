@@ -23,6 +23,7 @@ class Activities: ObservableObject {
             }
         }
     }
+
     init() {
         if let items = UserDefaults.standard.data(forKey: "Items") {
             let decoder = JSONDecoder()
@@ -31,7 +32,6 @@ class Activities: ObservableObject {
                 return
             }
         }
-
         self.items = []
     }
 }
@@ -39,7 +39,7 @@ class Activities: ObservableObject {
 struct ContentView: View {
     @ObservedObject var activities = Activities()
     @State private var showingAddActivity = false
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -51,11 +51,10 @@ struct ContentView: View {
                 .onDelete(perform: removeItems)
             }
             .navigationBarTitle("TrackRabbit")
-            .navigationBarItems(leading: EditButton(),
+            .navigationBarItems(
+                leading: EditButton(),
                 trailing:
-                    Button(action: {
-                        self.showingAddActivity = true
-                    }) {
+                    Button(action: { self.showingAddActivity = true}) {
                         Image(systemName: "plus")
                     }
             )
@@ -64,11 +63,10 @@ struct ContentView: View {
             AddView(activities: self.activities)
         }
     }
-    
+
     func removeItems(at offsets: IndexSet) {
         activities.items.remove(atOffsets: offsets)
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

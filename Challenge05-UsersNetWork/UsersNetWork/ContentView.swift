@@ -13,20 +13,19 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(users, id: \.id) { user in
-                NavigationLink(destination: DetailView(user: user /*, friendsMember: self.users */)) {
-                        VStack(alignment: .leading) {
-                            Label {
-                                HStack {
-                                    Text(user.name)
-                                        .font(.body)
-                                        .foregroundColor(.primary)
-                                    Text(user.company.uppercased())
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                }
-                                .padding()
-                                
-                            } icon: {
+                NavigationLink(destination: DetailView(user: user)) {
+                    VStack(alignment: .leading) {
+                        Label {
+                            HStack {
+                                Text(user.name)
+                                    .font(.body)
+                                    .foregroundColor(.primary)
+                                Text(user.company.uppercased())
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding()
+                        } icon: {
                             Circle()
                                 .fill(user.colorUser)
                                 .opacity(0.8)
@@ -36,24 +35,23 @@ struct ContentView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(.white)
                                         .shadow(radius: 10)
-                                        
                                 )
-                            }
                         }
+                    }
                 }
-            }.onAppear(perform: loadData)
+            }
+            .onAppear(perform: loadData)
             .navigationBarTitle("FriendFace")
         }
     }
-    
+
     func loadData() {
         guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
             return
         }
         let request = URLRequest(url: url)
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
+        URLSession.shared.dataTask(with: request) { data, _, error in
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
@@ -61,7 +59,6 @@ struct ContentView: View {
                     let users = try decoder.decode([User].self, from: data)
                     DispatchQueue.main.async {
                         self.users = users
-                        
                     }
                 } catch {
                     print(error)
@@ -72,7 +69,6 @@ struct ContentView: View {
             }
         }.resume()
     }
-
 }
 
 struct ContentView_Previews: PreviewProvider {

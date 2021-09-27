@@ -4,6 +4,7 @@
 //
 //  Created by Konrad Cureau on 25/06/2021.
 //
+// swiftlint:disable identifier_name
 
 import Foundation
 import SwiftUI
@@ -11,8 +12,6 @@ import SwiftUI
 struct Users: Codable {
     let users: [User]
 }
-
-
 
 struct User: Codable, Identifiable {
     var id: UUID
@@ -26,18 +25,17 @@ struct User: Codable, Identifiable {
     let registered: Date
     let tags: [String]
     let friends: [Friend]
-    
+
     struct Friend: Codable, Identifiable {
         var id: UUID
         let name: String
-        
+
         var initialsName: String {
             name.components(separatedBy: " ").reduce("") {
                 ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
         }
-        
     }
-    
+
     var statut: String {
         if isActive {
             return "Online"
@@ -45,7 +43,7 @@ struct User: Codable, Identifiable {
             return "Offline"
         }
     }
-    
+
     var colorUser: Color {
         switch age {
         case 0..<21:
@@ -65,9 +63,8 @@ struct User: Codable, Identifiable {
         default:
             return .black
         }
-    
     }
-    
+
     var statutColor: Color {
         if isActive {
             return .green
@@ -75,23 +72,19 @@ struct User: Codable, Identifiable {
             return .red
         }
     }
-    
+
     var initialsName: String {
         name.components(separatedBy: " ").reduce("") {
             ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
     }
-    
+
     var listTags: String {
         return tags.joined(separator: " #")
     }
 
-    
-    
-    
     var formattedRegisteredDate: String {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         return formatter.string(from: registered)
     }
 }
-

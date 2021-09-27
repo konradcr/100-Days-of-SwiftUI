@@ -9,9 +9,9 @@ import SwiftUI
 
 struct DetailView: View {
     @State private var users = [User]()
+
     let user: User
-    
-//
+
 //    struct FriendsMember {
 //        let name: String
 //        let friend: User
@@ -34,7 +34,6 @@ struct DetailView: View {
 //        self.friendsMember = matches
 //
 //    }
-    
 //    let crew: [User.Friend]
 //
 //    init(user: User, friends: [User]) {
@@ -51,13 +50,13 @@ struct DetailView: View {
 //        }
 //        self.crew = matches
 //    }
-    
+
     var body: some View {
         VStack {
         HStack {
             Spacer()
 
-            VStack (alignment: .leading) {
+            VStack(alignment: .leading) {
                 Circle()
                     .fill(self.user.colorUser)
                     .opacity(0.8)
@@ -69,25 +68,21 @@ struct DetailView: View {
                             .shadow(radius: 10)
                             .font(.largeTitle)
                     )
-                
                 HStack {
                     Circle()
                         .fill(self.user.statutColor)
                         .frame(width: 10, height: 10)
                     Text(self.user.statut)
                         .font(.subheadline)
-                    
-                    }.padding(.horizontal)
-                    .background(Color.gray.opacity(0.2))
-                    .clipShape(Capsule())
-                    
-                    
-                    
-                
+                }
+                .padding(.horizontal)
+                .background(Color.gray.opacity(0.2))
+                .clipShape(Capsule())
             }
+
             Spacer()
-            
-            VStack (alignment: .leading) {
+
+            VStack(alignment: .leading) {
                 HStack {
                     Text(self.user.name)
                         .font(.title)
@@ -99,95 +94,93 @@ struct DetailView: View {
                 Text(self.user.company.uppercased())
                     .font(.headline)
             }
+
             Spacer()
 
             }
-            
-            
+
             Form {
                 Section(header: Text("Contact")) {
                     Label(self.user.email, systemImage: "at.circle.fill")
                     Label(self.user.address, systemImage: "house.circle.fill")
                 }
-                
-                
-                Section(header: Text("About")){
+
+                Section(header: Text("About")) {
                     Text(self.user.about)
                         .padding()
                     Text("#\(self.user.listTags)")
                         .padding()
                 }
-                
+
                 Section(header: Text("Friends")) {
                     List(self.user.friends) { person in
-                        self.getFriendDetails(friend: person, of: users).map{
+                        self.getFriendDetails(friend: person, of: users).map {
                             NavigationLink(destination: DetailView(user: $0)) {
                                 HStack {
-                               Circle()
-                                .fill(user.colorUser)
-                                   .opacity(0.8)
-                                   .frame(width: 44, height: 44, alignment: .center)
-                                   .overlay(
-                                    Text(person.initialsName)
-                                           .fontWeight(.bold)
-                                           .foregroundColor(.white)
-                                           .shadow(radius: 10)
-
-                                   )
-                               Text(person.name)
-                                   .font(.body)
-                                   .foregroundColor(.primary)
-                           }
-                            }.isDetailLink(false)
+                                    Circle()
+                                        .fill(user.colorUser)
+                                        .opacity(0.8)
+                                        .frame(width: 44, height: 44, alignment: .center)
+                                        .overlay(
+                                            Text(person.initialsName)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.white)
+                                                .shadow(radius: 10)
+                                        )
+                                    Text(person.name)
+                                        .font(.body)
+                                        .foregroundColor(.primary)
+                                }
+                            }
+                            .isDetailLink(false)
                         }
-//                        Group {
-//                            NavigationLink(destination: DetailView(user: self.getFriendDetails(friend: person, of: users))  ) {
-//                                HStack {
-//                                    Circle()
-//                                        .fill(Color.gray)
-//                                        .opacity(0.8)
-//                                        .frame(width: 44, height: 44, alignment: .center)
-//                                        .overlay(
-//                                            Text(person.initialsName)
-//                                                .fontWeight(.bold)
-//                                                .foregroundColor(.white)
-//                                                .shadow(radius: 10)
+//                                                Group {
+//                                                    NavigationLink(
+//                                                        destination: DetailView(
+//                                                            user: self.getFriendDetails(friend: person, of: users))
+//                                                    ) {
+//                                                        HStack {
+//                                                            Circle()
+//                                                                .fill(Color.gray)
+//                                                                .opacity(0.8)
+//                                                                .frame(width: 44, height: 44, alignment: .center)
+//                                                                .overlay(
+//                                                                    Text(person.initialsName)
+//                                                                        .fontWeight(.bold)
+//                                                                        .foregroundColor(.white)
+//                                                                        .shadow(radius: 10)
 //
-//                                        )
-//                                    Text(person.name)
-//                                        .font(.body)
-//                                        .foregroundColor(.primary)
-//                                }
-//                            }
-//                        }
-                    }.onAppear(perform: loadData)
-                    
+//                                                                )
+//                                                            Text(person.name)
+//                                                                .font(.body)
+//                                                                .foregroundColor(.primary)
+//                                                        }
+//                                                    }
+//                                                }
+                    }
+                    .onAppear(perform: loadData)
                 }
-                
-                
             }
             Text("Registered since: \(self.user.formattedRegisteredDate)")
                 .font(.subheadline)
         }
-        
     }
-    
-    
+
     func getFriendDetails(friend: User.Friend, of list: [User]) -> User? {
         if let user = list.first(where: {($0.id == friend.id) && ($0.name == friend.name)}) {
             return user
         }
         return nil
     }
-    
+
     func loadData() {
         guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
             return
         }
         let request = URLRequest(url: url)
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
+        URLSession.shared.dataTask(with: request) { data, _, error in
+
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
@@ -195,7 +188,6 @@ struct DetailView: View {
                     let users = try decoder.decode([User].self, from: data)
                     DispatchQueue.main.async {
                         self.users = users
-                        
                     }
                 } catch {
                     print(error)
@@ -206,7 +198,4 @@ struct DetailView: View {
             }
         }.resume()
     }
-    
 }
-
-
