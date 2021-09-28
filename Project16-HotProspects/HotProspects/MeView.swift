@@ -11,10 +11,10 @@ import CoreImage.CIFilterBuiltins
 struct MeView: View {
     @State private var name = "Anonymous"
     @State private var emailAddress = "you@yoursite.com"
-    
+
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -33,13 +33,13 @@ struct MeView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
-                
+
                 Spacer()
             }
             .navigationBarTitle("Your code")
         }
     }
-    
+
     func generateQRCode(from string: String) -> UIImage {
         let data = Data(string.utf8)
         filter.setValue(data, forKey: "inputMessage")

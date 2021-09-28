@@ -10,7 +10,7 @@ import SwiftUI
 struct ResortView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
     @EnvironmentObject var favorites: Favorites
-    
+
     @State private var selectedFacility: Facility?
 
     let resort: Resort
@@ -18,7 +18,7 @@ struct ResortView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                ZStack (alignment:.bottomTrailing) {
+                ZStack(alignment: .bottomTrailing) {
                     Image(decorative: resort.id)
                         .resizable()
                         .scaledToFit()
@@ -48,7 +48,7 @@ struct ResortView: View {
                     .font(.headline)
                     .foregroundColor(.secondary)
                     .padding(.top)
-                    
+
                     Text(resort.description)
                         .padding(.vertical)
 
@@ -67,7 +67,7 @@ struct ResortView: View {
                     .padding(.vertical)
                 }
                 .padding(.horizontal)
-                
+
                 Button(favorites.contains(resort) ? "Remove from Favorites" : "Add to Favorites") {
                     if self.favorites.contains(self.resort) {
                         self.favorites.remove(self.resort)
@@ -84,7 +84,6 @@ struct ResortView: View {
         }
     }
 }
-
 
 struct ResortView_Previews: PreviewProvider {
     static var previews: some View {

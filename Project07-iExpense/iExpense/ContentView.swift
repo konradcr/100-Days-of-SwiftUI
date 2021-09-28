@@ -20,7 +20,6 @@ struct ExpenseItem: Identifiable, Codable {
         } else {
             return .red
         }
-    
     }
 }
 
@@ -46,12 +45,10 @@ class Expenses: ObservableObject {
     }
 }
 
-
 struct ContentView: View {
     @ObservedObject var expenses = Expenses()
     @State private var showingAddExpense = false
-    
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -64,7 +61,7 @@ struct ContentView: View {
                         }
 
                         Spacer()
-                        
+
                         Text("$\(item.amount)")
                             .foregroundColor(item.color)
                     }
@@ -73,8 +70,7 @@ struct ContentView: View {
             }
             .navigationBarTitle("iExpense")
             .navigationBarItems(leading: EditButton(),
-                                trailing:
-                Button(action: {
+                                trailing: Button(action: {
                     self.showingAddExpense = true
                 }) {
                     Image(systemName: "plus")
@@ -85,11 +81,10 @@ struct ContentView: View {
             }
         }
     }
-    
+
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

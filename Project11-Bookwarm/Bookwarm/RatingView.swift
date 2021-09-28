@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RatingView: View {
-    
+
     @Binding var rating: Int
 
     var label = ""
@@ -20,8 +20,7 @@ struct RatingView: View {
 
     var offColor = Color.gray
     var onColor = Color.yellow
-    
-    
+
     var body: some View {
         HStack {
             if label.isEmpty == false {
@@ -40,7 +39,7 @@ struct RatingView: View {
             }
         }
     }
-    
+
     func image(for number: Int) -> Image {
         if number > rating {
             return offImage ?? onImage

@@ -15,7 +15,7 @@ func loadData(file: String) -> [Prospect]? {
     return nil
 }
 
-func saveData(of people: [Prospect],  to file: String) {
+func saveData(of people: [Prospect], to file: String) {
     let url = getFilePath(fileName: file)
     let encoded = jsonEncode(people: people)
     do {
@@ -30,7 +30,6 @@ private func getFilePath(fileName: String) -> URL {
     let url = docDir.appendingPathComponent(fileName)
     return url
 }
-
 
 private func jsonDecode(_ data: Data) -> [Prospect]? {
     let decoder = JSONDecoder()

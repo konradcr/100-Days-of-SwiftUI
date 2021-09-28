@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CheckoutView: View {
     @ObservedObject var order: Order
-    
+
     @State private var titleMessage = ""
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
@@ -36,23 +36,27 @@ struct CheckoutView: View {
         }
         .navigationBarTitle("Check out", displayMode: .inline)
         .alert(isPresented: $showingConfirmation) {
-            Alert(title: Text(titleMessage), message: Text(confirmationMessage), dismissButton: .default(Text("OK")))
+            Alert(
+                title: Text(titleMessage),
+                message: Text(confirmationMessage),
+                dismissButton: .default(Text("OK"))
+            )
         }
     }
-    
+
     func placeOrder() {
         guard let encoded = try? JSONEncoder().encode(order) else {
             print("Failed to encode order")
             return
         }
-        
+
         let url = URL(string: "https://reqres.in/api/cupcakes")!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         request.httpBody = encoded
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
+
+        URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data else {
                 print("No data in response: \(error?.localizedDescription ?? "Unknown error").")
                 self.titleMessage = "Sorry"
@@ -62,14 +66,13 @@ struct CheckoutView: View {
             }
             if let decodedOrder = try? JSONDecoder().decode(Order.self, from: data) {
                 self.titleMessage = "Thank You !"
-                self.confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
+                self.confirmationMessage =  "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
                 self.showingConfirmation = true
             } else {
                 print("Invalid response from server")
             }
-        }.resume()
-        
-        
+        }
+        .resume()
     }
 }
 

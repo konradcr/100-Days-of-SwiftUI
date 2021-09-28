@@ -28,7 +28,6 @@ struct AddView: View {
                 }
                 TextField("Amount", text: $amount)
                     .keyboardType(.numberPad)
-                
             }
             .navigationBarTitle("Add new expense")
             .navigationBarItems(trailing: Button("Save") {
@@ -41,8 +40,13 @@ struct AddView: View {
                 }
             }
             .alert(isPresented: $showingAlert) {
-                       Alert(title: Text("Error"), message: Text("Please enter a valid number"), dismissButton: .default(Text("OK")))
-                   })
+                Alert(
+                    title: Text("Error"),
+                    message: Text("Please enter a valid number"),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+            )
         }
     }
 }

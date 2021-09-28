@@ -37,10 +37,10 @@ struct ContentView: View {
             .navigationBarTitle("Moonshot")
         }
     }
-    
-    func crewNames(actualMission: Mission) -> String{
+
+    func crewNames(actualMission: Mission) -> String {
             var temp = [String]()
-            for crewName in actualMission.crew{
+            for crewName in actualMission.crew {
                 temp.append(crewName.name.capitalized)
             }
 

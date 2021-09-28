@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @State private var lastNameFilter = "A"
-    
+
     var body: some View {
         VStack {
             FilteredList(filter: lastNameFilter)

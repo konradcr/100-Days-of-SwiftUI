@@ -14,23 +14,20 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
+
                 Toggle("Re-use card answered wrong", isOn: $reUseWrongCards)
                     .padding()
 
-                
             }
             .padding()
             .navigationBarTitle("Settings")
-            
             .navigationBarItems(trailing: Button("Done", action: dismiss))
             .listStyle(GroupedListStyle())
-            
         }
         .navigationBarTitleDisplayMode(.large)
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    
+
     func dismiss() {
         presentationMode.wrappedValue.dismiss()
     }

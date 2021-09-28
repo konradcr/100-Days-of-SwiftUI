@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Singer {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Singer> {
@@ -18,7 +17,7 @@ extension Singer {
 
     @NSManaged public var firstName: String?
     @NSManaged public var lastName: String?
-    
+
     var wrappedFirstName: String {
         firstName ?? "Unknown"
     }
@@ -26,9 +25,8 @@ extension Singer {
     var wrappedLastName: String {
         lastName ?? "Unknown"
     }
-
 }
 
-extension Singer : Identifiable {
+extension Singer: Identifiable {
 
 }

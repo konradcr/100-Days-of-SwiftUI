@@ -13,7 +13,7 @@ struct MapView: UIViewRepresentable {
     @Binding var selectedPlace: MKPointAnnotation?
     @Binding var showingPlaceDetails: Bool
     var annotations: [MKPointAnnotation]
-    
+
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
@@ -37,11 +37,11 @@ struct MapView: UIViewRepresentable {
         init(_ parent: MapView) {
             self.parent = parent
         }
-        
+
         func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
             parent.centerCoordinate = mapView.centerCoordinate
         }
-        
+
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             // this is our unique identifier for view reuse
             let identifier = "Placemark"
@@ -66,8 +66,12 @@ struct MapView: UIViewRepresentable {
             // whether it's a new view or a recycled one, send it back
             return annotationView
         }
-        
-        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+
+        func mapView(
+            _ mapView: MKMapView,
+            annotationView view: MKAnnotationView,
+            calloutAccessoryControlTapped control: UIControl
+        ) {
             guard let placemark = view.annotation as? MKPointAnnotation else { return }
 
             parent.selectedPlace = placemark
@@ -88,6 +92,11 @@ extension MKPointAnnotation {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate), selectedPlace: .constant(MKPointAnnotation.example), showingPlaceDetails: .constant(false), annotations: [MKPointAnnotation.example])
+        MapView(
+            centerCoordinate: .constant(MKPointAnnotation.example.coordinate),
+            selectedPlace: .constant(MKPointAnnotation.example),
+            showingPlaceDetails: .constant(false),
+            annotations: [MKPointAnnotation.example]
+        )
     }
 }

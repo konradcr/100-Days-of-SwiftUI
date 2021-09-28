@@ -12,13 +12,12 @@ struct MissionView: View {
         let role: String
         let astronaut: Astronaut
     }
-    
-    
+
     let mission: Mission
     let astronauts: [CrewMember]
-    
+
     let frameHeight: CGFloat = 300
-    
+
     var body: some View {
         GeometryReader { fullView in
             ScrollView(.vertical) {
@@ -44,14 +43,14 @@ struct MissionView: View {
                         }
                     }
                     .frame(height: self.frameHeight, alignment: .center)
-                    
+
                     Text(mission.formattedLaunchDate)
                         .font(.headline)
-                    
+
                     Text(self.mission.description)
                         .padding()
                         .layoutPriority(1)
-                    
+
                     ForEach(self.astronauts, id: \.role) { crewMember in
                         NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut)) {
                             HStack {
@@ -60,16 +59,17 @@ struct MissionView: View {
                                     .frame(width: 83, height: 60)
                                     .clipShape(Capsule())
                                     .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
-                                
+
                                 VStack(alignment: .leading) {
                                     Text(crewMember.astronaut.name)
                                         .font(.headline)
                                     Text(crewMember.role)
                                         .foregroundColor(.secondary)
                                 }
-                                
+
                                 Spacer()
-                            }.accessibilityElement(children: .ignore)
+                            }
+                            .accessibilityElement(children: .ignore)
                             .accessibility(label: Text("\(crewMember.astronaut.name) : \(crewMember.role)"))
                             .padding(.horizontal)
                         }
@@ -81,12 +81,12 @@ struct MissionView: View {
         }
         .navigationBarTitle(Text(mission.displayName), displayMode: .inline)
     }
-    
+
     init(mission: Mission, astronauts: [Astronaut]) {
         self.mission = mission
-        
+
         var matches = [CrewMember]()
-        
+
         for member in mission.crew {
             if let match = astronauts.first(where: { $0.id == member.name }) {
                 matches.append(CrewMember(role: member.role, astronaut: match))
@@ -94,31 +94,30 @@ struct MissionView: View {
                 fatalError("Missing \(member)")
             }
         }
-        
         self.astronauts = matches
     }
-    
+
     func getOffsetForMissionPatch(for geometry: GeometryProxy) -> CGFloat {
         let scale = getScaleOfMissionPatch(for: geometry)
         return self.frameHeight * (1 - scale) * 0.95
     }
-    
+
     func getScaleOfMissionPatch(for geometry: GeometryProxy) -> CGFloat {
         let offset = geometry.frame(in: .global).minY
         let halfHeight = self.frameHeight / 2
-        
+
         // This value was found by just printing the minY of .global at the start
         let startingOffset: CGFloat = 91
-        
+
         let minimumSizeAtOffset = startingOffset - halfHeight
         let scale = 0.8 + 0.2 * (offset - minimumSizeAtOffset) / halfHeight
-        
+
         if scale < 0.8 {
             return 0.8
         } else if scale > 1.2 {
             return 1.2
         }
-        
+
         return scale
     }
 }
@@ -126,9 +125,8 @@ struct MissionView: View {
 struct MissionView_Previews: PreviewProvider {
     static let missions: [Mission] = Bundle.main.decode("missions.json")
     static let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
-    
+
     static var previews: some View {
         MissionView(mission: missions[2], astronauts: astronauts)
     }
 }
-

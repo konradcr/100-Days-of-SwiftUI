@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     @ObservedObject var order = Order()
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -25,7 +24,7 @@ struct ContentView: View {
                         Text("Number of cakes: \(order.quantity)")
                     }
                 }
-                
+
                 Section {
                     Toggle(isOn: $order.specialRequestEnabled.animation()) {
                         Text("Any special requests?")
@@ -41,19 +40,17 @@ struct ContentView: View {
                         }
                     }
                 }
-                
+
                 Section {
                     NavigationLink(destination: AddressView(order: order)) {
                         Text("Delivery details")
                     }
                 }
-                
             }
             .navigationBarTitle("Cupcake Corner")
         }
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

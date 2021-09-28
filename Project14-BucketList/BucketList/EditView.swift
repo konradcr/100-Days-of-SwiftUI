@@ -4,6 +4,7 @@
 //
 //  Created by Konrad Cureau on 05/07/2021.
 //
+// swiftlint:disable line_length
 
 import SwiftUI
 import MapKit
@@ -12,7 +13,7 @@ struct EditView: View {
     enum LoadingState {
         case loading, loaded, failed
     }
-    
+
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var placemark: MKPointAnnotation
     @State private var loadingState = LoadingState.loading
@@ -48,7 +49,7 @@ struct EditView: View {
             .onAppear(perform: fetchNearbyPlaces)
         }
     }
-    
+
     func fetchNearbyPlaces() {
         let urlString = "https://en.wikipedia.org/w/api.php?ggscoord=\(placemark.coordinate.latitude)%7C\(placemark.coordinate.longitude)&action=query&prop=coordinates%7Cpageimages%7Cpageterms&colimit=50&piprop=thumbnail&pithumbsize=500&pilimit=50&wbptterms=description&generator=geosearch&ggsradius=10000&ggslimit=50&format=json"
 
@@ -57,7 +58,7 @@ struct EditView: View {
             return
         }
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, _, _ in
             if let data = data {
                 // we got some data back!
                 let decoder = JSONDecoder()
@@ -72,7 +73,8 @@ struct EditView: View {
 
             // if we're still here it means the request failed somehow
             self.loadingState = .failed
-        }.resume()
+        }
+        .resume()
     }
 }
 

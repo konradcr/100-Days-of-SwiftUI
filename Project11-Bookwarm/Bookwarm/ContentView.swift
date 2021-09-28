@@ -15,9 +15,7 @@ struct ContentView: View {
     ]) var books: FetchedResults<Book>
 
     @State private var showingAddScreen = false
-    
-    
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -35,7 +33,7 @@ struct ContentView: View {
                                 Text(book.title ?? "Unknown Title")
                                     .font(.headline)
                             }
-                            
+
                             Text(book.author ?? "Unknown Author")
                                 .foregroundColor(.secondary)
                         }
@@ -43,18 +41,18 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteBooks)
             }
-                .navigationBarTitle("Bookworm")
-                .navigationBarItems(leading: EditButton(), trailing: Button(action: {
-                    self.showingAddScreen.toggle()
-                }) {
-                    Image(systemName: "plus")
-                })
-                .sheet(isPresented: $showingAddScreen) {
-                    AddBookView().environment(\.managedObjectContext, self.moc)
-                }
+            .navigationBarTitle("Bookworm")
+            .navigationBarItems(leading: EditButton(), trailing: Button(action: {
+                self.showingAddScreen.toggle()
+            }) {
+                Image(systemName: "plus")
+            })
+            .sheet(isPresented: $showingAddScreen) {
+                AddBookView().environment(\.managedObjectContext, self.moc)
+            }
         }
     }
-    
+
     func deleteBooks(at offsets: IndexSet) {
         for offset in offsets {
             // find this book in our fetch request

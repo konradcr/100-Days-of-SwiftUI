@@ -4,6 +4,7 @@
 //
 //  Created by Konrad Cureau on 17/07/2021.
 //
+// swiftlint:disable line_length
 
 import SwiftUI
 import CoreHaptics
@@ -28,23 +29,23 @@ struct ContentView: View {
     @State private var cards = [Card]()
     @State var activeSheet: ActiveSheet?
     @State private var showingAlert = false
-    
+
     @State private var reUseWrongCards = true
-    
+
     @State private var engine: CHHapticEngine?
-    
+
     @State private var timeRemaining = 100
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+
     @State private var isActive = true
-    
+
     var body: some View {
         ZStack {
             Image(decorative: "background")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
-            
+
             VStack {
                 Text("Time: \(timeRemaining)")
                     .font(.largeTitle)
@@ -56,7 +57,7 @@ struct ContentView: View {
                             .fill(Color.black)
                             .opacity(0.75)
                     )
-                
+
                 ZStack {
                     ForEach(0..<cards.count, id: \.self) { index in
                         let removal = { (correct: Bool) in
@@ -81,7 +82,7 @@ struct ContentView: View {
                     }
                 }
                 .allowsHitTesting(timeRemaining > 0)
-                
+
                 if cards.isEmpty {
                     Button("Start Again", action: resetCards)
                         .padding()
@@ -100,9 +101,9 @@ struct ContentView: View {
                             .background(Color.black.opacity(0.7))
                             .clipShape(Circle())
                     }
-                    
+
                     Spacer()
-                    
+
                     Button(action: {
                         activeSheet = .edit
                     }) {
@@ -112,7 +113,7 @@ struct ContentView: View {
                             .clipShape(Circle())
                     }
                 }
-                
+
                 Spacer()
             }
             .foregroundColor(.white)
@@ -135,7 +136,7 @@ struct ContentView: View {
                         .accessibility(label: Text("Wrong"))
                         .accessibility(hint: Text("Mark your answer as being incorrect."))
                         Spacer()
-                        
+
                         Button(action: {
                             withAnimation {
                                 self.removeCard(at: self.cards.count - 1)
@@ -154,7 +155,7 @@ struct ContentView: View {
                     .padding()
                 }
             }
-        }.onReceive(timer) { time in
+        }.onReceive(timer) { _ in
             guard self.isActive else { return }
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
@@ -190,11 +191,10 @@ struct ContentView: View {
                     action: resetCards
                   )
             )
-            
         }
         .onAppear(perform: resetCards)
     }
-    
+
     func removeCard(at index: Int) {
         guard index >= 0 else { return }
         cards.remove(at: index)
@@ -202,13 +202,13 @@ struct ContentView: View {
             isActive = false
         }
     }
-    
+
     func resetCards() {
         timeRemaining = 100
         isActive = true
         loadData()
     }
-    
+
     func loadData() {
         if let data = UserDefaults.standard.data(forKey: "Cards") {
             if let decoded = try? JSONDecoder().decode([Card].self, from: data) {
@@ -216,10 +216,10 @@ struct ContentView: View {
             }
         }
     }
-    
+
     func prepareHaptics() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
-        
+
         do {
             self.engine = try CHHapticEngine()
             try engine?.start()
@@ -227,26 +227,26 @@ struct ContentView: View {
             print("There was an error creating the engine: \(error.localizedDescription)")
         }
     }
-    
+
     func timeOverHaptic() {
         // make sure that the device supports haptics
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
-        
+
         for i in stride(from: 0, to: 1, by: 0.1) {
             let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(i))
             let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(i))
             let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i)
             events.append(event)
         }
-        
+
         for i in stride(from: 0, to: 1, by: 0.1) {
             let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(1 - i))
             let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(1 - i))
             let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 1 + i)
             events.append(event)
         }
-        
+
         // convert those events into a pattern and play it immediately
         do {
             let pattern = try CHHapticPattern(events: events, parameters: [])
@@ -256,7 +256,6 @@ struct ContentView: View {
             print("Failed to play pattern: \(error.localizedDescription).")
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -264,4 +263,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-

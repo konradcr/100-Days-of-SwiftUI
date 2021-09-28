@@ -16,12 +16,11 @@ struct AddBookView: View {
     @State private var rating = 3
     @State private var genre = ""
     @State private var review = ""
-    
+
     @State private var showingGenreAlert = false
-    
+
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
 
-    
     var body: some View {
         NavigationView {
             Form {
@@ -57,16 +56,17 @@ struct AddBookView: View {
                             try? self.moc.save()
                             self.presentationMode.wrappedValue.dismiss()
                         }
-
                     }
                     .alert(isPresented: $showingGenreAlert) {
-                                Alert(title: Text("Important message"), message: Text("Choose a genre"), dismissButton: .default(Text("OK")))
-                            }
+                        Alert(
+                            title: Text("Important message"),
+                            message: Text("Choose a genre"),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
                 }
             }
             .navigationBarTitle("Add Book")
-            
-            
         }
     }
 }

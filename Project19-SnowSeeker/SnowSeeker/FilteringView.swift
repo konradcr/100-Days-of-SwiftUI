@@ -14,16 +14,15 @@ extension String: Identifiable {
 
 struct FilteringView: View {
     @Environment(\.presentationMode) var presentationMode
-    
+
     let countriesArray = ["All", "United States", "Italy", "France", "Canada", "Austria"]
     let sizesArray = ["All", "Small", "Average", "Large"]
     let pricesArray = ["All", "$", "$$", "$$$"]
-    
+
     @Binding var countryForFiltering: String
     @Binding var sizeForFiltering: Int
     @Binding var priceForFiltering: Int
-    
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -36,8 +35,7 @@ struct FilteringView: View {
                         .colorMultiply(Color.red)
                 }
                 Section(header: Text("Select size for filtering")) {
-                    Picker(selection: $sizeForFiltering
-                    , label: Text("Select size for filtering")) {
+                    Picker(selection: $sizeForFiltering, label: Text("Select size for filtering")) {
                         ForEach(0 ..< self.sizesArray.count) { number in
                             Text("\(self.sizesArray[number])")
                         }
@@ -46,13 +44,12 @@ struct FilteringView: View {
                 }
                 Section(header: Text("Select price for filtering: ")) {
                     Picker(selection: $priceForFiltering, label: Text("Select price for filtering")) {
-                        ForEach(0 ..< self.pricesArray.count){ number in
+                        ForEach(0 ..< self.pricesArray.count) { number in
                             Text("\(self.pricesArray[number])")
                         }
                     }.pickerStyle(SegmentedPickerStyle())
                         .colorMultiply(Color.orange)
                 }
-                
             }
             .navigationBarItems(trailing: Button(action: {
                 self.dismiss()
@@ -61,7 +58,7 @@ struct FilteringView: View {
             }))
         }.navigationViewStyle(StackNavigationViewStyle())
     }
-    
+
     func dismiss() {
         self.presentationMode.wrappedValue.dismiss()
     }

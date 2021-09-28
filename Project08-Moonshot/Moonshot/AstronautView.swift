@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AstronautView: View {
 
-    
     let astronaut: Astronaut
 //    let missions: [Mission]
     let missionsFlown: [String]
@@ -27,23 +26,19 @@ struct AstronautView: View {
                     Text(self.astronaut.description)
                         .padding()
                         .layoutPriority(1)
-                    
-                    
+
                     ForEach(self.missionsFlown, id: \.self) { mission in
                         VStack {
                             Text(mission.description)
                                 .font(.headline)
                         }
                     }
-                    
-                    
-                        
                 }
             }
         }
         .navigationBarTitle(Text(astronaut.name), displayMode: .inline)
     }
-    
+
     init(astronaut: Astronaut) {
             self.astronaut = astronaut
             let missions: [Mission] = Bundle.main.decode("missions.json")
@@ -60,9 +55,6 @@ struct AstronautView: View {
             }
             self.missionsFlown = matches
         }
-    
-
-    
 //    init(astronaut: Astronaut, missions: [Mission]) {
 //        self.astronaut = astronaut
 //
@@ -73,8 +65,6 @@ struct AstronautView: View {
 //
 //        self.missions = matches
 //    }
-    
-    
 }
 
 struct AstronautView_Previews: PreviewProvider {

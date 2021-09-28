@@ -10,17 +10,17 @@ import MapKit
 
 struct ContentView: View {
     @State private var isUnlocked = false
-        
-        var body: some View {
-            
-            ZStack {
-                if isUnlocked {
-                    UnlockView()
-                } else {
-                    UnlockButtonView(isUnlocked: $isUnlocked)
-                }
+
+    var body: some View {
+
+        ZStack {
+            if isUnlocked {
+                UnlockView()
+            } else {
+                UnlockButtonView(isUnlocked: $isUnlocked)
             }
         }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

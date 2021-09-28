@@ -14,16 +14,16 @@ struct ContentView: View {
     @State private var filterIntensity = 0.5
     @State private var filterRadius = 0.5
     @State private var filterScale = 0.5
-    
+
     @State private var showingFilterSheet = false
     @State private var showingImagePicker = false
     @State private var showingImageAlert = false
     @State private var inputImage: UIImage?
     @State private var processedImage: UIImage?
-    
+
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     let context = CIContext()
-    
+
     var hasIntensity: Bool {
             currentFilter.inputKeys.contains(kCIInputIntensityKey)
     }
@@ -35,7 +35,7 @@ struct ContentView: View {
     var hasScale: Bool {
         currentFilter.inputKeys.contains(kCIInputScaleKey)
     }
-    
+
     var body: some View {
         let intensity = Binding<Double>(
             get: {
@@ -64,7 +64,7 @@ struct ContentView: View {
                 self.applyProcessing()
             }
         )
-        
+
         return NavigationView {
             VStack {
                 ZStack {
@@ -88,23 +88,26 @@ struct ContentView: View {
                 HStack {
                     Text("Intensity")
                     Slider(value: intensity)
-                }.padding(.vertical)
+                }
+                .padding(.vertical)
                 .disabled(hasIntensity == false)
-                
+
                 HStack {
                     Text("Radius")
                     Slider(value: radius)
-                }.padding(.vertical)
+                }
+                .padding(.vertical)
                 .disabled(hasRadius == false)
-                
+
                 HStack {
                     Text("Scale")
                     Slider(value: scale)
-                }.padding(.vertical)
+                }
+                .padding(.vertical)
                 .disabled(hasScale == false)
 
                 HStack {
-                    Button("\((CIFilter.localizedName(forFilterName: self.currentFilter.name) ?? "Select a Filter"))" ) {
+                    Button("\((CIFilter.localizedName(forFilterName: self.currentFilter.name) ?? "Select a Filter"))") {
                         self.showingFilterSheet = true
                     }
 
@@ -128,8 +131,12 @@ struct ContentView: View {
                         imageSaver.writeToPhotoAlbum(image: processedImage)
                     }
                     .alert(isPresented: $showingImageAlert) {
-                                Alert(title: Text("Important message"), message: Text("No picture selected"), dismissButton: .default(Text("Got it!")))
-                            }
+                        Alert(
+                            title: Text("Important message"),
+                            message: Text("No picture selected"),
+                            dismissButton: .default(Text("Got it!"))
+                        )
+                    }
                 }
             }
             .padding([.horizontal, .bottom])
@@ -151,7 +158,7 @@ struct ContentView: View {
             }
         }
     }
-    
+
     func loadImage() {
         guard let inputImage = inputImage else { return }
 
@@ -159,7 +166,7 @@ struct ContentView: View {
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         applyProcessing()
     }
-    
+
     func applyProcessing() {
         if hasIntensity {
                     print("set intensity \(filterIntensity)")
@@ -173,7 +180,7 @@ struct ContentView: View {
             print("set scale \(filterScale * 10)")
             currentFilter.setValue(filterScale * 10, forKey: kCIInputScaleKey)
         }
-        
+
         guard let outputImage = currentFilter.outputImage else { return }
 
         if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
@@ -182,7 +189,7 @@ struct ContentView: View {
             processedImage = uiImage
         }
     }
-    
+
     func setFilter(_ filter: CIFilter) {
         currentFilter = filter
         loadImage()

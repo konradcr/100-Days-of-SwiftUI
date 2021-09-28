@@ -20,11 +20,11 @@ struct ResortDetailsView: View {
             return "Large"
         }
     }
-    
+
     var price: String {
         String(repeating: "$", count: resort.price)
     }
-    
+
     var body: some View {
         Group {
             Text("Size: \(size)").layoutPriority(1)
