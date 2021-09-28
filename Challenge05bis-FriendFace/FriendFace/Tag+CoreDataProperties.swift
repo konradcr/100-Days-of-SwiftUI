@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Tag {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Tag> {
@@ -18,7 +17,7 @@ extension Tag {
 
     @NSManaged public var word: String?
     @NSManaged public var ofUser: NSSet?
-    
+
     public var wrappedWord: String {
         word ?? "Nature"
     }
@@ -42,6 +41,6 @@ extension Tag {
 
 }
 
-extension Tag : Identifiable {
+extension Tag: Identifiable {
 
 }

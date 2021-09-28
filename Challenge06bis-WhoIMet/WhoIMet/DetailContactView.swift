@@ -12,17 +12,16 @@ import MapKit
 struct DetailContactView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var moc
-    
+
     @State private var showingDeleteAlert = false
     let locationFetcher = LocationFetcher()
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var annotation: MKPointAnnotation?
-    
-    
+
     let contact: Contact
-    
+
     var body: some View {
-        
+
         VStack {
             TabView {
                 Image(uiImage: UIImage(data: contact.wrappedPhoto)!)
@@ -32,8 +31,7 @@ struct DetailContactView: View {
                     .tabItem {
                         Label("Photo", systemImage: "photo")
                     }
-                
-                
+
                 ZStack {
                     MapView(centerCoordinate: $centerCoordinate, withAnnotation: annotation)
                         .clipShape(RoundedRectangle(cornerRadius: 25.0))
@@ -50,56 +48,44 @@ struct DetailContactView: View {
                     } else {
                         EmptyView()
                     }
-                        
-                    
-                }.tabItem {
+                }
+                .tabItem {
                     Label("Map", systemImage: "map")
                 }
-                    
-                
             }
-            
-            
-            
-            
-            
-            
-        }.onAppear(perform: putAnnotation)
+        }
+        .onAppear(perform: putAnnotation)
         .navigationTitle(Text(contact.wrappedName))
         .navigationBarTitleDisplayMode(.inline)
         .alert(isPresented: $showingDeleteAlert) {
             Alert(title: Text("Delete Contact"),
                   message: Text("Are you sure ?"),
-                  primaryButton: .destructive(Text("Delete")) {
-                    self.deleteContact()
-                  }, secondaryButton: .cancel()
+                  primaryButton: .destructive(Text("Delete")) { self.deleteContact() },
+                  secondaryButton: .cancel()
             )
         }
-        .navigationBarItems(trailing: Button(action : {
-            self.showingDeleteAlert = true
-        }){
+        .navigationBarItems(
+            trailing: Button(action: { self.showingDeleteAlert = true }) {
             Image(systemName: "trash")
-        })
+            }
+        )
     }
-    
+
     func deleteContact() {
         moc.delete(contact)
         presentationMode.wrappedValue.dismiss()
     }
-    
+
     func putAnnotation() {
         let newLocation = MKPointAnnotation()
         newLocation.coordinate = CLLocationCoordinate2D(latitude: contact.latitude, longitude: contact.longitude)
         self.annotation = newLocation
     }
-    
 }
-
-
 
 struct DetailContactView_Previews: PreviewProvider {
     static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-    
+
     static var previews: some View {
         let contact = Contact(context: moc)
         let jpegPhoto = UIImage(systemName: "person.crop.circle")!.jpegData(compressionQuality: 0.8)!

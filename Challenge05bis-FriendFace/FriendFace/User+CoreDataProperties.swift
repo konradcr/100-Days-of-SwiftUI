@@ -10,11 +10,8 @@ import Foundation
 import CoreData
 import SwiftUI
 
-
 extension User {
-    
-    
-    
+
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
         return NSFetchRequest<User>(entityName: "User")
     }
@@ -30,30 +27,28 @@ extension User {
     @NSManaged public var email: String?
     @NSManaged public var tags: NSSet?
     @NSManaged public var friends: NSSet?
-    
-    
-    
+
     public var wrappedName: String {
         name ?? "Konrad"
     }
-    
+
     public var initialsName: String {
         wrappedName.components(separatedBy: " ").reduce("") {
             ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
     }
-    
+
     public var wrappedCompany: String {
         company ?? "Apple"
     }
-    
+
     public var wrappedAddress: String {
         address ?? "France"
     }
-    
+
     public var wrappedAbout: String {
         about ?? "I would like to become an iOS dev"
     }
-    
+
     public var wrappedEmail: String {
         email ?? "@icloud.com"
     }
@@ -70,14 +65,14 @@ extension User {
         formatter.dateStyle = .long
         return formatter.string(from: registered)
     }
-    
+
     public var friendsArray: [Friend] {
         let set = friends as? Set<Friend> ?? []
         return set.sorted {
             $0.wrappedName < $1.wrappedName
         }
     }
-    
+
     public var statut: String {
         if isActive {
             return "Online"
@@ -85,7 +80,7 @@ extension User {
             return "Offline"
         }
     }
-    
+
     var colorUser: Color {
         switch age {
         case 0..<21:
@@ -105,9 +100,8 @@ extension User {
         default:
             return .black
         }
-    
     }
-    
+
     var statutColor: Color {
         if isActive {
             return .green
@@ -115,9 +109,6 @@ extension User {
             return .red
         }
     }
-    
-    
-    
 }
 
 // MARK: Generated accessors for tags
@@ -154,6 +145,6 @@ extension User {
 
 }
 
-extension User : Identifiable {
+extension User: Identifiable {
 
 }

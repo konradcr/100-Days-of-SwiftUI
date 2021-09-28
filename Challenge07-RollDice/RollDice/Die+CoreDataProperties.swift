@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Die {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Die> {
@@ -20,17 +19,16 @@ extension Die {
     @NSManaged public var dieResult: Int16
     @NSManaged public var nbrOfSide: Int16
     @NSManaged public var mainResult: Result?
-    
+
     var wrappedNbrOfSide: Int {
         Int(nbrOfSide)
     }
-    
+
     var wrappedDieResult: Int {
         Int(dieResult)
     }
-
 }
 
-extension Die : Identifiable {
+extension Die: Identifiable {
 
 }

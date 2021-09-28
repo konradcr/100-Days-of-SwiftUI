@@ -17,7 +17,7 @@ private func fetchDataFromFile(_ filePath: URL) -> Data? {
     return nil
 }
 
-private func decodeData(data: Data) -> [Contact]{
+private func decodeData(data: Data) -> [Contact] {
     let decoder = JSONDecoder()
     do {
         let decodedData = try decoder.decode([Contact].self, from: data)
@@ -28,7 +28,7 @@ private func decodeData(data: Data) -> [Contact]{
     }
 }
 
-private func encodeData(toBeEncoded: [Contact]) -> Data?{
+private func encodeData(toBeEncoded: [Contact]) -> Data? {
     let encoder = JSONEncoder()
     encoder.outputFormatting = .prettyPrinted
     do {
@@ -48,14 +48,13 @@ private func writeDataToFile(toWrite dataToBeWritten: Data, inFile file: URL) {
     }
 }
 
-
 /**** Public Methods ****/
 
-func appendContactToFile(newContact: Contact, filePath: URL){
+func appendContactToFile(newContact: Contact, filePath: URL) {
     if let oldData = fetchDataFromFile(filePath) {
         var contacts = decodeData(data: oldData)
         contacts.append(newContact)
-        if let newEncodedData = encodeData(toBeEncoded: contacts){
+        if let newEncodedData = encodeData(toBeEncoded: contacts) {
             writeDataToFile(toWrite: newEncodedData, inFile: filePath)
         }
     } else {
@@ -65,17 +64,16 @@ func appendContactToFile(newContact: Contact, filePath: URL){
     }
 }
 
-func getDataFromJSONFile(path: URL) -> [Contact]{
+func getDataFromJSONFile(path: URL) -> [Contact] {
     if let data = fetchDataFromFile(path) {
         printJSONFile(data: data)
         let decoded = decodeData(data: data)
-       
+
         return decoded
     }
     return []
 }
 
-func printJSONFile(data: Data){
+func printJSONFile(data: Data) {
    // data.map{print(String(data: $0.name, encoding: .utf8) ?? "Can't Print JSON file");}
 }
-

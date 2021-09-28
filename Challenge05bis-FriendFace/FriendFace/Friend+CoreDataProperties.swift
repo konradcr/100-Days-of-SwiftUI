@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Friend {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Friend> {
@@ -19,7 +18,7 @@ extension Friend {
     @NSManaged public var id: UUID
     @NSManaged public var name: String?
     @NSManaged public var ofUser: NSSet?
-    
+
     public var wrappedName: String {
         name ?? "Konrad"
     }
@@ -43,6 +42,6 @@ extension Friend {
 
 }
 
-extension Friend : Identifiable {
+extension Friend: Identifiable {
 
 }

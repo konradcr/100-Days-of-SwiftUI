@@ -10,11 +10,13 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Contact.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Contact.name, ascending: true)]) var contacts: FetchedResults<Contact>
-    
+    @FetchRequest(
+        entity: Contact.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Contact.name, ascending: true)]
+    ) var contacts: FetchedResults<Contact>
+
     @State private var showingAddContact = false
-    
-    
+
     var body: some View {
         ZStack {
             NavigationView {
@@ -27,13 +29,15 @@ struct ContentView: View {
                                     .scaledToFill()
                                     .frame(width: 50, height: 50)
                                     .clipShape(Circle())
-                                
+
                                 Text(contact.wrappedName)
                                     .font(.title3)
                             }
                         }
-                    }.onDelete(perform: deleteContact(at:))
-                }.navigationBarTitle("Who I Met")
+                    }
+                    .onDelete(perform: deleteContact(at:))
+                }
+                .navigationBarTitle("Who I Met")
             }
             VStack {
                 Spacer()
@@ -50,17 +54,15 @@ struct ContentView: View {
                     .font(.title)
                     .clipShape(Circle())
                     .padding(.trailing)
-                }.padding(.bottom)
+                }
+                .padding(.bottom)
             }
-            
-            
         }
         .sheet(isPresented: $showingAddContact) {
             AddContactView().environment(\.managedObjectContext, self.moc)
         }
-        
     }
-    
+
     func deleteContact(at offsets: IndexSet) {
         for offset in offsets {
             let contact = contacts[offset]

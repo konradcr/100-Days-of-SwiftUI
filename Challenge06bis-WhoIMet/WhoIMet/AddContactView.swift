@@ -19,40 +19,44 @@ enum ActiveSheet: Identifiable {
 struct AddContactView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var moc
-    
+
     @State var activeSheet: ActiveSheet?
     @State var allowTrackLocation = false
-    
+
     @State private var name = ""
     @State private var image: Image?
     @State private var inputImage: UIImage?
-    
+
     let locationFetcher = LocationFetcher()
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var currentLocation: CLLocationCoordinate2D?
-    
+
     var body: some View {
         VStack {
-            HStack(alignment:.top) {
+            HStack(alignment: .top) {
                 Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Cancel")
                 }
-                
+
                 Spacer()
+
                 Text("Add a person")
                     .font(.headline)
+
                 Spacer()
-                
+
                 Button(action: {
                     saveContact()
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Done").bold()
-                }.disabled(self.name == "" || self.image == nil)
-            }.padding()
-            
+                }
+                .disabled(self.name == "" || self.image == nil)
+            }
+            .padding()
+
             if image != nil {
                 image?
                     .resizable()
@@ -66,7 +70,7 @@ struct AddContactView: View {
                     .frame(width: 200, height: 200, alignment: .center)
                     .foregroundColor(.gray)
             }
-            
+
             HStack {
                 Button(action: {
                     activeSheet = .camera
@@ -119,13 +123,14 @@ struct AddContactView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .disableAutocorrection(true)
-            
+
             MapView(centerCoordinate: $centerCoordinate, currentLocation: currentLocation)
                 .clipShape(RoundedRectangle(cornerRadius: 25.0))
                 .padding()
                 .onAppear(perform: self.locationFetcher.start)
-            
-        }.sheet(item: $activeSheet, onDismiss: loadImage) { item in
+
+        }
+        .sheet(item: $activeSheet, onDismiss: loadImage) { item in
             switch item {
             case .camera:
                 ImagePicker(image: self.$inputImage, sourceType: .camera)
@@ -133,17 +138,13 @@ struct AddContactView: View {
                 ImagePicker(image: self.$inputImage, sourceType: .photoLibrary)
             }
         }
-        
-        
-        
     }
-    
+
     func loadImage() {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
     }
-    
-    
+
     func saveContact() {
         let imageUnwrapp = inputImage ?? UIImage(systemName: "person.crop.circle")!
         let jpegPhoto = imageUnwrapp.jpegData(compressionQuality: 0.8)
@@ -158,7 +159,6 @@ struct AddContactView: View {
         if self.moc.hasChanges {
             try? self.moc.save()
         }
-        
     }
 }
 

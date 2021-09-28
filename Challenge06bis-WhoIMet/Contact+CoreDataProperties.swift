@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 import UIKit
 
-
 extension Contact {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Contact> {
@@ -26,13 +25,12 @@ extension Contact {
     public var wrappedName: String {
         name ?? "Unknow"
     }
-    
+
     public var wrappedPhoto: Data {
         photo ?? UIImage(systemName: "person.crop.circle")!.jpegData(compressionQuality: 0.8)!
     }
-    
 }
 
-extension Contact : Identifiable {
+extension Contact: Identifiable {
 
 }

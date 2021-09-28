@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ScoresView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Result.entity(), sortDescriptors:  [NSSortDescriptor(keyPath: \Result.totalResult, ascending: false)]) var results: FetchedResults<Result>
-    
+    @FetchRequest(
+        entity: Result.entity(),
+        sortDescriptors:  [NSSortDescriptor(keyPath: \Result.totalResult, ascending: false)]
+    ) var results: FetchedResults<Result>
+
     var body: some View {
         NavigationView {
             VStack {
@@ -22,16 +25,16 @@ struct ScoresView: View {
                                 Text("Die: \(newDie.wrappedDieResult)")
                             }
                         }
-                        
-                        
-                        
-                    }.onDelete(perform: removeResult(at:))
+                    }
+                    .onDelete(perform: removeResult(at:))
                 }
-            }.navigationBarTitle(Text("Scores"))
+            }
+            .navigationBarTitle(Text("Scores"))
             .navigationBarItems(trailing: EditButton())
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
-    
+
     func removeResult(at offsets: IndexSet) {
         for index in offsets {
             let result = results[index]
@@ -39,7 +42,7 @@ struct ScoresView: View {
                 moc.delete(die)
             }
             moc.delete(result)
-            
+
             do {
                 try moc.save()
             } catch {

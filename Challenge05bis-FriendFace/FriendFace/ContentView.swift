@@ -10,13 +10,12 @@ import CoreData
 
 struct ContentView: View {
 
-    
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(
         entity: User.entity(),
         sortDescriptors: []
     ) var users: FetchedResults<User>
-    
+
     var body: some View {
         NavigationView {
             List(users, id: \.self) { user in
@@ -32,7 +31,6 @@ struct ContentView: View {
                                 .foregroundColor(.secondary)
                         }
                         .padding()
-                        
                     } icon: {
                     Circle()
                         .fill(user.colorUser)
@@ -43,7 +41,6 @@ struct ContentView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .shadow(radius: 10)
-                                
                         )
                     }
                 }
@@ -51,44 +48,40 @@ struct ContentView: View {
             }.onAppear(perform: loadUserData)
             .navigationBarTitle("FriendFace")
         }
-        
     }
-   
+
     func loadUserData() {
-            guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
-                print("Invalid URL")
+        guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
+            print("Invalid URL")
+            return
+        }
+
+        let request = URLRequest(url: url)
+
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let userData = data else {
+                print("No data in response: \(error?.localizedDescription ?? "Unknown Error")")
                 return
             }
 
-            let request = URLRequest(url: url)
+            let userDecoder = JSONDecoder()
 
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let userData = data else {
-                    print("No data in response: \(error?.localizedDescription ?? "Unknown Error")")
-                    return
+            userDecoder.dateDecodingStrategy = .iso8601
+            userDecoder.userInfo[CodingUserInfoKey.context!] = moc
+
+            do {
+                _ = try userDecoder.decode([User].self, from: userData)
+
+                if self.moc.hasChanges {
+                    try? self.moc.save()
                 }
-
-                let userDecoder = JSONDecoder()
-
-                userDecoder.dateDecodingStrategy = .iso8601
-                userDecoder.userInfo[CodingUserInfoKey.context!] = moc
-
-                do {
-                    let _ = try userDecoder.decode([User].self, from: userData)
-
-                    if self.moc.hasChanges {
-                        try? self.moc.save()
-                    }
-                } catch {
-                    print("Decoding Failed: \(error.localizedDescription)")
-                }
-
-            }.resume()
+            } catch {
+                print("Decoding Failed: \(error.localizedDescription)")
+            }
         }
- 
+        .resume()
+    }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

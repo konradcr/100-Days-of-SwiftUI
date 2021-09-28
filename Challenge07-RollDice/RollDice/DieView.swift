@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct DieView: View {
-    
+
     var die: Int
     var width: CGFloat
     var height: CGFloat
     var font: Font
-    
-    
+
     var body: some View {
         Text("\(die)")
             .frame(width: self.width, height: self.height)

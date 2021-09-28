@@ -9,7 +9,7 @@ import SwiftUI
 
 enum ActiveSheet: Identifiable {
     case camera, library
-    
+
     var id: Int {
         hashValue
     }
@@ -17,49 +17,48 @@ enum ActiveSheet: Identifiable {
 
 struct AddContactView: View {
     @Environment(\.presentationMode) var presentationMode
-    
+
     @State var activeSheet: ActiveSheet?
-    
+
     @State private var name = ""
     @State private var image: Image?
     @State private var inputImage: UIImage?
 
-
-    var iconImage : Image {
+    var iconImage: Image {
         guard let image = image else { return Image(systemName: "person.crop.circle")}
         return image
     }
-    
+
     var body: some View {
-        
+
         VStack {
-            HStack(alignment:.top) {
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
+            HStack(alignment: .top) {
+                Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
                     Text("Cancel")
                 }
-                
+
                 Spacer()
+
                 Text("Add a person")
                     .font(.headline)
+
                 Spacer()
-                
-                Button(action: {
-                    saveData()
-                }) {
-                    Text("Done").bold()
+
+                Button(action: { saveData() }) {
+                    Text("Done")
+                        .bold()
                 }
-            }.padding()
+            }
+            .padding()
+
             iconImage
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200, alignment: .center)
                 .foregroundColor(.gray)
+
             HStack {
-                Button(action: {
-                    activeSheet = .camera
-                }) {
+                Button(action: { activeSheet = .camera }) {
                     VStack {
                         Image(systemName: "camera")
                             .padding()
@@ -69,9 +68,7 @@ struct AddContactView: View {
                             .clipShape(Circle())
                     }
                 }
-                Button(action: {
-                    activeSheet = .library
-                }) {
+                Button(action: { activeSheet = .library }) {
                     VStack {
                         Image(systemName: "photo.on.rectangle")
                             .padding()
@@ -82,36 +79,35 @@ struct AddContactView: View {
                     }
                 }
             }
-            
+
             TextField("Name", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .disableAutocorrection(true)
+
             Spacer()
-        }.sheet(item: $activeSheet, onDismiss: loadImage) { item in
-                    switch item {
-                    case .camera:
-                        ImagePicker(image: self.$inputImage, sourceType: .camera)
-                    case .library:
-                        ImagePicker(image: self.$inputImage, sourceType: .photoLibrary)
-                    }
-                }
-    
-        
+        }
+        .sheet(item: $activeSheet, onDismiss: loadImage) { item in
+            switch item {
+            case .camera:
+                ImagePicker(image: self.$inputImage, sourceType: .camera)
+            case .library:
+                ImagePicker(image: self.$inputImage, sourceType: .photoLibrary)
+            }
+        }
     }
-    
+
     func loadImage() {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
-
     }
-    
-    func saveData(){
+
+    func saveData() {
         // Save contact in json file
         let path = getDocumentsDirectory().appendingPathComponent("contacts.json")
 
         let imageUnwrapp = inputImage ?? UIImage(systemName: "person.crop.circle")!
-        
+
         if let jpegPhoto = imageUnwrapp.jpegData(compressionQuality: 0.8) {
             let newContact = Contact(photo: jpegPhoto, name: self.name)
             appendContactToFile(newContact: newContact, filePath: path)
@@ -122,22 +118,15 @@ struct AddContactView: View {
         // dismiss view
         presentationMode.wrappedValue.dismiss()
     }
-    
-    
-    
+
     func getDocumentsDirectory() -> URL {
            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
            return path[0]
     }
-
 }
-
-
-
 
 struct AddContactView_Previews: PreviewProvider {
     static var previews: some View {
         AddContactView()
     }
 }
-
