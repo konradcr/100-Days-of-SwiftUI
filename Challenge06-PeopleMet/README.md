@@ -30,3 +30,5 @@ We’ve covered how to save data to the user’s photo library using UIImageWrit
 >If you do choose to use Core Data, make sure you don’t save the actual image into the database because that’s not efficient. Core Data or not, the optimal thing to do is generate a new UUID for the image filename then write it to the documents directory, and store that UUID in your data model.
 
 ## Screenshots
+
+![Screenshot](Screenshot/challenge6.gif)

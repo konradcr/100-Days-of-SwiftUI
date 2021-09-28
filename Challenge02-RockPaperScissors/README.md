@@ -25,3 +25,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/guide/ios-swiftui/2/3
 >5. The important part is making three buttons that respond to the player’s move: Rock, Paper, or Scissors.
 
 ## Screenshots
+
+![Screenshot](Screenshot/challenge2.gif)

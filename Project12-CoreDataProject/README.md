@@ -16,3 +16,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/books/ios-swiftui/cor
 >3. Modify the predicate string parameter to be an enum such as .beginsWith, then make that enum get resolved to a string inside the initializer.
 
 ## Screenshots
+
+![Screenshot](Screenshot/project12.gif)

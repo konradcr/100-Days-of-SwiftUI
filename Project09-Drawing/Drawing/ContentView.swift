@@ -307,7 +307,8 @@ struct ContentView2: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static var insetAmount: CGFloat = 0.1
     static var previews: some View {
-        ContentView2()
+        Spirograph(innerRadius: 10, outerRadius: 12, distance: 2, amount: insetAmount)
     }
 }

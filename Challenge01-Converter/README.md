@@ -24,3 +24,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/100/swiftui/19):
 >If you want a bigger challenge, try adding a third segmented control that lets us change the unit being converted – give your program the ability to convert temperature, length, time, or volume, all in one app.
 
 ## Screenshots
+
+![Screenshot](Screenshot/challenge1.gif)

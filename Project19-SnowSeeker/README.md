@@ -15,3 +15,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/books/ios-swiftui/sno
 >3. For a real challenge, let the user sort and filter the resorts in ContentView. For sorting use default, alphabetical, and country, and for filtering let them select country, size, or price.
 
 ## Screenshots
+
+![Screenshot](Screenshot/project19.gif)

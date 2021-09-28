@@ -22,3 +22,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/guide/ios-swiftui/7/3
 >While you’re working, please take a moment to remember the accessibility of your code – try using it with VoiceOver and make sure it works as well as you can make it.
 
 ## Screenshots
+
+![Screenshot](Screenshot/challenge7.gif)

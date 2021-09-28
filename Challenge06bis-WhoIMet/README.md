@@ -14,3 +14,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/100/swiftui/61):
 >Tip: If you want to make your app really useful, try setting the sourceType property of your image picker controller to .camera so that it lets user take new photos rather than import existing ones.
 
 ## Screenshots
+
+![Screenshot](Screenshot/challenge6bis.gif)

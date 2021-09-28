@@ -23,3 +23,5 @@ Where things get more interesting is with their friends: if you really want to p
 >For a medium-sized challenge, show a little information about their friends right on the detail screen. For a bigger challenge, make each of those friends tappable to show their own detail view.
 
 ## Screenshots
+
+![Screenshot](Screenshot/challenge5.gif)

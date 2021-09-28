@@ -14,3 +14,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/books/ios-swiftui/iex
 >3. Add some validation to the Save button in AddView. If you enter “fish” or another thing that can’t be converted to an integer, show an alert telling users what the problem is.
 
 ## Screenshots
+
+![Screenshot](Screenshot/project7.gif)

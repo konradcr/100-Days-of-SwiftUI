@@ -18,3 +18,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/guide/ios-swiftui/3/3
 >Once you have that, it’s down to you how far you want to take the app down the “entertainment” route – you could throw away fixed controls like Stepper entirely if you wanted, and instead rely on colorful buttons to get the same result. You could use something like Kenney’s Animal Pack (which is public domain, by the way!) to add a fun theme to make it into a real game. And hopefully you will also add some over the top animations – it needs to appeal to kids 9 and under, so going bright, colorful, and perhaps even a bit zany is a good idea!
 
 ## Screenshots
+
+![Screenshot](Screenshot/challenge3.gif)

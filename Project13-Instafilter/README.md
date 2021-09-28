@@ -15,3 +15,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/books/ios-swiftui/ins
 >3. Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
 
 ## Screenshots
+
+![Screenshot](Screenshot/project13.gif)

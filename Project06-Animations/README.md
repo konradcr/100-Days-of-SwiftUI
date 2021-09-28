@@ -7,3 +7,5 @@ https://www.hackingwithswift.com/100/swiftui/32
 Animations and transitions
 
 ## Screenshots
+
+![Screenshot](Screenshot/project6.gif)

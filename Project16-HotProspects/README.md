@@ -15,3 +15,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/books/ios-swiftui/hot
 >3. Use an action sheet to customize the way users are sorted in each screen – by name or by most recent.
 
 ## Screenshots
+
+![Screenshot](Screenshot/project16.gif)

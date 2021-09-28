@@ -15,3 +15,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/books/ios-swiftui/fla
 >3. If you drag a card to the right but not far enough to remove it, then release, you see it turn red as it slides back to the center. Why does this happen and how can you fix it? (Tip: use a custom modifier for this to avoid cluttering your body property.)
 
 ## Screenshots
+
+![Screenshot](Screenshot/project17.gif)

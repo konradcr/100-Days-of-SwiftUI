@@ -14,3 +14,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/books/ios-swiftui/gue
 >3. When someone chooses the wrong flag, tell them their mistake in your alert message – something like “Wrong! That’s the flag of France,” for example.
 
 ## Screenshots
+
+![Screenshot](Screenshot/project2.gif)
